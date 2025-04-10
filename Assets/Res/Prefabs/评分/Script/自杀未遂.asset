@@ -1,0 +1,122 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5a504bd8c508c14a9b65d950cab3dfd, type: 3}
+  m_Name: "\u81EA\u6740\u672A\u9042"
+  m_EditorClassIdentifier: 
+  scoreName: "\u4EFB\u52A1\u4E09\uFF1A\u81EA\u6740\u672A\u9042\u7684\u5E94\u6025\u5904\u7406"
+  scoreSer: 
+  scoreID: pmh
+  resultVo:
+  - stageName: "\u901A\u77E5\u7BA1\u5E8A\u533B\u751F"
+    stepInfos:
+    - stepName: "\u901A\u77E5\u7BA1\u5E8A\u533B\u751F"
+      pointDatas:
+      - pointName: "\u901A\u77E5\u7BA1\u5E8A\u533B\u751F"
+        scoreActSet: 0
+        scorePointStates:
+        - pointInfo: "\u5DF2\u5B8C\u6210\u901A\u77E5\u7BA1\u5E8A\u533B\u751F\u64CD\u4F5C"
+          scoreGet: 3
+          "actIndex_\u884C\u4E3A\u7D22\u5F15": 1
+        - pointInfo: "\u672A\u5B8C\u6210\u901A\u77E5\u7BA1\u5E8A\u533B\u751F\u64CD\u4F5C"
+          scoreGet: 0
+          "actIndex_\u884C\u4E3A\u7D22\u5F15": 0
+        - pointInfo: "\u901A\u77E5\u7BA1\u5E8A\u533B\u751F\u64CD\u4F5C\u9519\u8BEF"
+          scoreGet: 0
+          "actIndex_\u884C\u4E3A\u7D22\u5F15": -1
+  - stageName: "\u60A3\u8005\u60C5\u51B5"
+    stepInfos:
+    - stepName: "\u60A3\u8005\u60C5\u51B5"
+      pointDatas:
+      - pointName: "\u68C0\u67E5\u4F24\u52BF"
+        scoreActSet: 0
+        scorePointStates:
+        - pointInfo: "\u5DF2\u5B8C\u6210\u68C0\u67E5\u4F24\u52BF\u64CD\u4F5C"
+          scoreGet: 2
+          "actIndex_\u884C\u4E3A\u7D22\u5F15": 1
+        - pointInfo: "\u672A\u5B8C\u6210\u68C0\u67E5\u4F24\u52BF\u64CD\u4F5C"
+          scoreGet: 0
+          "actIndex_\u884C\u4E3A\u7D22\u5F15": 0
+        - pointInfo: "\u68C0\u67E5\u4F24\u52BF\u64CD\u4F5C\u9519\u8BEF"
+          scoreGet: 0
+          "actIndex_\u884C\u4E3A\u7D22\u5F15": -1
+      - pointName: "\u4E8B\u540E\u9632\u62A4"
+        scoreActSet: 0
+        scorePointStates:
+        - pointInfo: "\u5DF2\u5B66\u4E60\u4E8B\u540E\u9632\u62A4\u64CD\u4F5C"
+          scoreGet: 2
+          "actIndex_\u884C\u4E3A\u7D22\u5F15": 1
+        - pointInfo: "\u672A\u5B66\u4E60\u4E8B\u540E\u9632\u62A4\u64CD\u4F5C"
+          scoreGet: 0
+          "actIndex_\u884C\u4E3A\u7D22\u5F15": 0
+        - pointInfo: "\u5B66\u4E60\u4E8B\u540E\u9632\u62A4\u64CD\u4F5C\u9519\u8BEF"
+          scoreGet: 0
+          "actIndex_\u884C\u4E3A\u7D22\u5F15": -1
+      - pointName: "\u5FC3\u7406\u758F\u5BFC"
+        scoreActSet: 0
+        scorePointStates:
+        - pointInfo: "\u5DF2\u5B66\u4E60\u5FC3\u7406\u758F\u5BFC\u64CD\u4F5C"
+          scoreGet: 2
+          "actIndex_\u884C\u4E3A\u7D22\u5F15": 1
+        - pointInfo: "\u672A\u5B66\u4E60\u5FC3\u7406\u758F\u5BFC\u64CD\u4F5C"
+          scoreGet: 0
+          "actIndex_\u884C\u4E3A\u7D22\u5F15": 0
+        - pointInfo: "\u5B66\u4E60\u5FC3\u7406\u758F\u5BFC\u64CD\u4F5C\u9519\u8BEF"
+          scoreGet: 0
+          "actIndex_\u884C\u4E3A\u7D22\u5F15": -1
+  - stageName: "\u62A4\u7406\u8981\u70B9"
+    stepInfos:
+    - stepName: "\u62A4\u7406\u8981\u70B9"
+      pointDatas:
+      - pointName: "\u62A4\u7406\u8981\u70B9"
+        scoreActSet: 0
+        scorePointStates:
+        - pointInfo: "\u62A4\u7406\u8981\u70B9\u9009\u62E9\u6B63\u786E"
+          scoreGet: 12
+          "actIndex_\u884C\u4E3A\u7D22\u5F15": 1
+        - pointInfo: "\u62A4\u7406\u8981\u70B9\u9009\u62E9\u6709\u8BEF"
+          scoreGet: 0
+          "actIndex_\u884C\u4E3A\u7D22\u5F15": 0
+        - pointInfo: "\u62A4\u7406\u8981\u70B9\u9009\u62E9\u6709\u8BEF"
+          scoreGet: 0
+          "actIndex_\u884C\u4E3A\u7D22\u5F15": -1
+  - stageName: "\u544A\u77E5\u5BB6\u5C5E"
+    stepInfos:
+    - stepName: "\u544A\u77E5\u5BB6\u5C5E"
+      pointDatas:
+      - pointName: "\u544A\u77E5\u5BB6\u5C5E"
+        scoreActSet: 0
+        scorePointStates:
+        - pointInfo: "\u5DF2\u5B8C\u6210\u544A\u77E5\u5BB6\u5C5E\u64CD\u4F5C"
+          scoreGet: 4
+          "actIndex_\u884C\u4E3A\u7D22\u5F15": 1
+        - pointInfo: "\u672A\u5B8C\u6210\u544A\u77E5\u5BB6\u5C5E\u64CD\u4F5C"
+          scoreGet: 0
+          "actIndex_\u884C\u4E3A\u7D22\u5F15": 0
+        - pointInfo: "\u544A\u77E5\u5BB6\u5C5E\u64CD\u4F5C\u6709\u8BEF"
+          scoreGet: 0
+          "actIndex_\u884C\u4E3A\u7D22\u5F15": -1
+  - stageName: "\u4E8B\u4EF6\u8BB0\u5F55"
+    stepInfos:
+    - stepName: "\u4E8B\u4EF6\u8BB0\u5F55"
+      pointDatas:
+      - pointName: "\u4E8B\u4EF6\u8BB0\u5F55"
+        scoreActSet: 0
+        scorePointStates:
+        - pointInfo: "\u5DF2\u5B8C\u6210\u4E8B\u4EF6\u8BB0\u5F55\u64CD\u4F5C"
+          scoreGet: 5
+          "actIndex_\u884C\u4E3A\u7D22\u5F15": 1
+        - pointInfo: "\u672A\u5B8C\u6210\u4E8B\u4EF6\u8BB0\u5F55\u64CD\u4F5C"
+          scoreGet: 0
+          "actIndex_\u884C\u4E3A\u7D22\u5F15": 0
+        - pointInfo: "\u672A\u5B8C\u6210\u4E8B\u4EF6\u8BB0\u5F55\u64CD\u4F5C"
+          scoreGet: 0
+          "actIndex_\u884C\u4E3A\u7D22\u5F15": -1
