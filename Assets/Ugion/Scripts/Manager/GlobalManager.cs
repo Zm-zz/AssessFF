@@ -45,13 +45,13 @@ public class GlobalManager : SingletonPatternMonoBase<GlobalManager>
         {
             Robot.Instance.ShowTips("Çë×ÐÏ¸²éÔÄ²¡ÀýÐÅÏ¢");
         }
-        else if (Input.GetKeyDown(KeyCode.X))
+
+        if (Input.GetKeyDown(KeyCode.C))
         {
             Robot.Instance.HideAllDialog();
         }
     }
 
-    [Shortcut("Open UI Panel", KeyCode.Z, ShortcutModifiers.Control)]
     public void Launch()
     {
         _TaskManager = FindObjectOfType<FTaskManager>();
@@ -59,7 +59,6 @@ public class GlobalManager : SingletonPatternMonoBase<GlobalManager>
 
         InitManagers();
     }
-
 
     private void InitManagers()
     {

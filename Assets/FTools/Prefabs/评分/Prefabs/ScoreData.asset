@@ -15,4 +15,12 @@ MonoBehaviour:
   scoreName: 
   scoreSer: 
   scoreID: 
-  resultVo: []
+  resultVo:
+  - stepName: 
+    pointDatas:
+    - pointName: 
+      scoreActSet: 0
+      scorePointStates:
+      - pointInfo: 
+        scoreGet: 0
+        "actIndex_\u884C\u4E3A\u7D22\u5F15": 0

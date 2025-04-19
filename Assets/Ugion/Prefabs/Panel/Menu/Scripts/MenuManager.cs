@@ -30,20 +30,25 @@ public class MenuManager : MonoBehaviour
 {
     private Transform trans_Parent;
 
-    [BoxGroup("遗弃预制")] public GameObject pre_ParMenu;
-    [BoxGroup("遗弃预制")] public GameObject pre_SubPar;
-    [BoxGroup("必要预制")] public GameObject pre_SpreadOption;
-    [BoxGroup("必要预制")] public GameObject pre_SubMenu;
+    [Title("遗弃预制")]
+    public GameObject pre_ParMenu;
+    public GameObject pre_SubPar;
+    [Title("必要预制")]
+    public GameObject pre_SpreadOption;
+    public GameObject pre_SubMenu;
 
-    [BoxGroup("配置项")] public ProcedureData procedureData;
-    [BoxGroup("配置项")][SerializeField] private bool _IsDefaultEnter;
+    [Title("配置项")]
+    public ProcedureData procedureData;
+    [SerializeField] private bool _IsDefaultEnter;
 
-    [ReadOnly][ShowInInspector][BoxGroup("实时追踪数据")] private ProcedureConfig currentProcedure;
-    [ReadOnly][ShowInInspector][BoxGroup("实时追踪数据")] private int currentMainIndex = -1;
-    [ReadOnly][ShowInInspector][BoxGroup("实时追踪数据")] private int currentSubIndex = -1;
+    [Title("实时追踪数据")]
+    [ReadOnly][ShowInInspector] private ProcedureConfig currentProcedure;
+    [ReadOnly][ShowInInspector] private int currentMainIndex = -1;
+    [ReadOnly][ShowInInspector] private int currentSubIndex = -1;
 
-    [ReadOnly][ShowInInspector][BoxGroup("动态对象")] private List<GameObject> spreadOptions = new List<GameObject>();
-    [ReadOnly][ShowInInspector][BoxGroup("动态对象")] private Dictionary<OptionBase, List<OptionBase>> options = new Dictionary<OptionBase, List<OptionBase>>();
+    [Title("动态对象")]
+    [ReadOnly][ShowInInspector] private List<GameObject> spreadOptions = new List<GameObject>(); //大环节
+    [ReadOnly][ShowInInspector] private Dictionary<OptionBase, List<OptionBase>> options = new Dictionary<OptionBase, List<OptionBase>>(); // 各环节
 
     // 步骤索引标识
     private int mainIndex = 0;
@@ -80,45 +85,6 @@ public class MenuManager : MonoBehaviour
             CreateOption(i, trans_Parent);
         });
     }
-
-    /*  private void CreateOption(ProcedureInfo procedureInfo, Transform parent, UnityAction clickAction = null)
-      {
-          OptionBase option = Instantiate(pre_ParMenu, parent).GetComponent<OptionBase>();
-          option.gameObject.name = $"Main_{procedureInfo.ProcedureConfig.procedureTitle}";
-          option.Initialize(this, procedureInfo, mainIndex);
-          mainIndex++;
-
-          options.Add(option, new List<OptionBase>());
-
-          if (procedureInfo.hasExtension)
-          {
-              GameObject subPar = Instantiate(pre_SubPar, parent);
-              subPar.name = $"SubParent_{procedureInfo.ProcedureConfig.procedureTitle}";
-              option.extensionMenu = subPar.transform;
-
-              foreach (var config in option.procedureInfo.extendedProcedures)
-              {
-                  OptionBase subOption = Instantiate(pre_SubMenu, subPar.transform).GetComponent<OptionBase>();
-                  Debug.Log(config);
-                  Debug.Log(subOption);
-                  subOption.gameObject.name = $"Sub_{config.procedureTitle}";
-                  ProcedureInfo info = new ProcedureInfo(config, false, null);
-                  subOption.Initialize(this, info, subIndex);
-                  subIndex++;
-
-                  if (options.ContainsKey(option))
-                  {
-                      options[option].Add(subOption);
-                  }
-                  else
-                  {
-                      options.Add(option, new List<OptionBase>() { subOption });
-                  }
-              }
-
-              subPar.SetActive(false);
-          }
-      }*/
 
     private void CreateOption(ProcedureInfo procedureInfo, Transform parent)
     {

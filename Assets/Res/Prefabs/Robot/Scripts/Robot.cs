@@ -1,4 +1,6 @@
+using Sirenix.OdinInspector;
 using System.Collections;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -6,34 +8,39 @@ using UnityEngine.UI;
 public class Robot : SingletonPatternMonoAutoBase<Robot>
 {
     private float popSpeed = 5f;
+    private bool isShown;
     private Coroutine popCor;
     private Coroutine hideCor;
     private Coroutine displayCor;
+
+    [Title("文本")]
     public Text content;
     public Text contentByButton;
-    private bool isShown;
 
+    [Title("眼睛")]
     public Image eyeL;
     public Image eyeR;
     public Sprite eye_Nor;
     public Sprite eye_Warn;
 
+    [Title("对话框")]
     public Transform dialogBox;
     public Transform dialogBoxByBut;
 
-    private string currentContent;
-
-    [Header("文字演示时间")]
+    [Title("文字演示时间")]
     public float displayTime = 1f;
 
+    [Title("按钮")]
     public Button but_X;
     public Button but_XHasBut;
-
     public Button but_L;
     public Button but_R;
 
-    [Header("高光提示")]
-    public bool isTip; // 高光提示
+    [Title("当前内容")]
+    [ReadOnly][ShowInInspector][Multiline] private string currentContent;
+
+    [Title("高光提示")]
+    public bool isTip;
 
     public void Initialize()
     {
@@ -307,5 +314,9 @@ public class Robot : SingletonPatternMonoAutoBase<Robot>
     private void SetContent(string txt)
     {
         currentContent = txt;
+
+#if UNITY_EDITOR
+        EditorUtility.SetDirty(this);
+#endif
     }
 }

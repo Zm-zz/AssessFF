@@ -14,8 +14,6 @@ public class FTaskBase : MonoBehaviour
     protected bool onAction;
     protected int actionCorLock;
 
-    
-
     public virtual void InitTask()
     {
 
@@ -33,7 +31,7 @@ public class FTaskBase : MonoBehaviour
         EventCenterManager.Broadcast(TaskCommand.Enter, taskIndex);
         EventCenterManager.Broadcast(TaskCommand.Enter_After, taskIndex);
         onAction = true;
-        Debug.Log($"<color=green>进入流程({taskIndex})：</color>{taskName}");
+        Debug.Log($"<size=13><color=green>进入流程({taskIndex})：</color></size>{taskName}");
 
         Robot.Instance.isTip = false;
     }

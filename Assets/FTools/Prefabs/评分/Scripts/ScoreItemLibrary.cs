@@ -1,10 +1,8 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-[CreateAssetMenu(fileName = "ScoreData", menuName = "FDatas/ScoreData")]
+[CreateAssetMenu(fileName = "ScoreData", menuName = "ScriptableObject/ScoreData", order = 1)]
 [Serializable]
 public class ScoreItemLibrary : ScriptableObject
 {

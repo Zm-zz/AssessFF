@@ -5,14 +5,6 @@ public class FTaskManager : SingletonPatternMonoBase<FTaskManager>
 {
     [ReadOnly] public FTaskBase[] tasks;
 
-    private void Update()
-    {
-        if (CheatingInstructions.isCheating)
-        {
-
-        }
-    }
-
     public void InitTask()
     {
         tasks = GetComponentsInChildren<FTaskBase>(true);

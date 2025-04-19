@@ -1,10 +1,11 @@
 using DG.Tweening;
-using System.Collections;
+using Sirenix.OdinInspector;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(CameraBasicMove))]
 public class CameraControl : SingletonPatternMonoBase<CameraControl>
 {
     [Header("点位父类")]
@@ -16,26 +17,24 @@ public class CameraControl : SingletonPatternMonoBase<CameraControl>
 
     private void Awake()
     {
+        InitializeCameraSet();
+
+        motion = GetComponent<CameraBasicMove>();
+    }
+
+    private void InitializeCameraSet()
+    {
         List<Transform> points = pointsParent.GetComponentsInChildren<Transform>(true).ToList();
 
         foreach (Transform t in points)
         {
             pointsDic.Add(t.name, t);
         }
-
-        motion = GetComponent<CameraBasicMove>();
     }
-
-
 
     /// <summary>
     /// 相机移动到目标位置
     /// </summary>
-    /// <param name="pointName"></param>
-    /// <param name="motionTime"></param>
-    /// <param name="action"></param>
-    /// <param name="canMove"></param>
-    /// <param name="canLift"></param>
     public void MoveToTarget(string pointName, float motionTime = 0, UnityAction action = null, bool canMove = true, bool canLift = true)
     {
         if (pointsDic.ContainsKey(pointName))
@@ -44,15 +43,13 @@ public class CameraControl : SingletonPatternMonoBase<CameraControl>
         }
         else
         {
-            Debug.Log($"<color=red>视角中没有：</color>{pointName}");
+            Debug.Log($"<size=13><color=red>不存在视角：</color></size>{pointName}");
         }
     }
 
     /// <summary>
     /// 移动到目标为止，并在站定以后调用事件
     /// </summary>
-    /// <param name="target"></param>
-    /// <param name="moveEvent"></param>
     public void MoveToTarget(Transform target, float motionTime, UnityAction moveEvent = null, bool canMove = true, bool canLift = true)
     {
         // 终止自身正在运作的Tween
