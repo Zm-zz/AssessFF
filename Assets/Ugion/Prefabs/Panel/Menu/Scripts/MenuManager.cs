@@ -30,15 +30,9 @@ public class MenuManager : MonoBehaviour
 {
     private Transform trans_Parent;
 
-    [Title("遗弃预制")]
-    public GameObject pre_ParMenu;
-    public GameObject pre_SubPar;
-    [Title("必要预制")]
+    [Title("配置项")]
     public GameObject pre_SpreadOption;
     public GameObject pre_SubMenu;
-
-    [Title("配置项")]
-    public ProcedureData procedureData;
     [SerializeField] private bool _IsDefaultEnter;
 
     [Title("实时追踪数据")]
@@ -54,9 +48,9 @@ public class MenuManager : MonoBehaviour
     private int mainIndex = 0;
     private int subIndex = 0;
 
-    public void Initialize()
+    public void Initialize(ProcedureData procedureData)
     {
-        trans_Parent = GameObject.Find("MainCanvas/Panel_Menu/Scroll Vertical/Viewport/Content").transform;
+        trans_Parent = GameObject.Find("UgionCanvas/Panel_Menu/Scroll Vertical/Viewport/Content").transform;
 
         InitOptions(procedureData);
     }
@@ -94,7 +88,7 @@ public class MenuManager : MonoBehaviour
 
         OptionBase option = spreadOption.GetComponentInChildren<OptionBase>();
         option.gameObject.name = $"Main_{procedureInfo.ProcedureConfig.procedureTitle}";
-        option.Initialize(this, procedureInfo, mainIndex++);
+        option.Initialize(procedureInfo, mainIndex++);
 
         options.Add(option, new List<OptionBase>());
 
@@ -102,7 +96,9 @@ public class MenuManager : MonoBehaviour
 
         if (procedureInfo.hasExtension)
         {
-            subSpread.GetComponent<FlexSubOptions>().preferredHeight = option.procedureInfo.extendedProcedures.Count * pre_SubMenu.GetComponent<RectTransform>().rect.height; ;
+            float scaleFactor = GameObject.Find("UgionCanvas").GetComponent<Canvas>().scaleFactor;
+            subSpread.GetComponent<FlexSubOptions>().preferredHeight =
+                 option.procedureInfo.extendedProcedures.Count * pre_SubMenu.GetComponent<RectTransform>().rect.height;
 
             foreach (var config in option.procedureInfo.extendedProcedures)
             {
@@ -112,13 +108,13 @@ public class MenuManager : MonoBehaviour
 
                 if (subSpread.childCount > 1)
                 {
-                    Vector3 lastPos = subSpread.GetChild(subSpread.childCount - 2).GetComponent<RectTransform>().position;
+                    Vector3 lastPos = subSpread.GetChild(subSpread.childCount - 2).GetComponent<RectTransform>().anchoredPosition;
                     Vector3 newPos = new Vector3(lastPos.x, lastPos.y - subRect.rect.height, 0);
-                    subRect.position = newPos;
+                    subRect.anchoredPosition = newPos;
                 }
 
                 ProcedureInfo info = new ProcedureInfo(config, false, null);
-                subOption.Initialize(this, info, subIndex++);
+                subOption.Initialize(info, subIndex++);
 
                 if (options.ContainsKey(option))
                 {
@@ -207,7 +203,7 @@ public class MenuManager : MonoBehaviour
             }
 
             // 模式锁环节
-            if (GlobalManager.Instance.GameMode == GameMode.Exam && currOption.index < currentMainIndex) return;
+            if (GlobalComponent.Instance.GameMode == GameMode.Exam && currOption.index < currentMainIndex) return;
 
             // 关闭其他主流程及其子流程
             foreach (var option in options.Keys.Where(o => o != currOption && o.Bool_IsOn))
@@ -223,7 +219,7 @@ public class MenuManager : MonoBehaviour
                 return;
             }
 
-            if (GlobalManager.Instance.GameMode == GameMode.Exam && currOption.index < currentSubIndex) return;
+            if (GlobalComponent.Instance.GameMode == GameMode.Exam && currOption.index < currentSubIndex) return;
 
             // 关闭当前主流程下的其他子流程
             foreach (var option in options[mainProcedure].Where(o => o != currOption && o.Bool_IsOn))
@@ -296,7 +292,7 @@ public class MenuManager : MonoBehaviour
     /// </summary>
     public void ChangeProcedure(ProcedureConfig config)
     {
-        GlobalManager.Instance.ChangeProcedure(config.procedureName);
+        GlobalComponent.Instance.ChangeProcedure(config.procedureName);
         currentProcedure = config;
 
 #if UNITY_EDITOR

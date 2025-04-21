@@ -1,5 +1,3 @@
-using Sirenix.OdinInspector;
-using UnityEditor.ShortcutManagement;
 using UnityEngine;
 
 /***
@@ -27,12 +25,14 @@ using UnityEngine;
  **************************************************************
  */
 
-public class GlobalManager : SingletonPatternMonoBase<GlobalManager>
+public class GlobalComponent : SingletonPatternMonoBase<GlobalComponent>
 {
     public GameMode GameMode = GameMode.Train;
 
-    [ReadOnly][SerializeField] private FTaskManager _TaskManager;
-    [ReadOnly][SerializeField] private MenuManager _MenuManager;
+    public ProcedureData procedureData;
+
+    public FTaskManager TaskManager { get; private set; }
+    public MenuManager MenuManager { get; private set; }
 
     private void Start()
     {
@@ -54,16 +54,16 @@ public class GlobalManager : SingletonPatternMonoBase<GlobalManager>
 
     public void Launch()
     {
-        _TaskManager = FindObjectOfType<FTaskManager>();
-        _MenuManager = FindObjectOfType<MenuManager>();
+        TaskManager = FindObjectOfType<FTaskManager>();
+        MenuManager = FindObjectOfType<MenuManager>();
 
         InitManagers();
     }
 
     private void InitManagers()
     {
-        _TaskManager.InitTask();
-        _MenuManager.Initialize();
+        TaskManager.InitTask();
+        MenuManager.Initialize(procedureData);
         Robot.Instance.Initialize();
     }
 

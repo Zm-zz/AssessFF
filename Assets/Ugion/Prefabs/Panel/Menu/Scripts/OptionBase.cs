@@ -8,7 +8,6 @@ public class OptionBase : MonoBehaviour
     [Header("---------- IsOn")]
     [ReadOnly][SerializeField] private bool bool_IsOn;
     [ReadOnly] public ProcedureInfo procedureInfo;
-    [ReadOnly] public MenuManager menuManager;
 
     [ReadOnly] public int index = -1;
 
@@ -43,7 +42,7 @@ public class OptionBase : MonoBehaviour
             if (isOn)
             {
                 // 执行流程
-                menuManager.ChangeProcedure(procedureInfo.ProcedureConfig);
+                GlobalComponent.Instance.MenuManager.ChangeProcedure(procedureInfo.ProcedureConfig);
             }
         }
     }
@@ -52,7 +51,7 @@ public class OptionBase : MonoBehaviour
     /// 初始化 
     /// clickAction 为 null，不会赋值
     /// </summary>
-    public virtual void Initialize(MenuManager menuManager, ProcedureInfo procedureInfo, int index)
+    public virtual void Initialize(ProcedureInfo procedureInfo, int index)
     {
         but_Self = GetComponent<Button>();
         _UIChange = GetComponent<UIChange>();
@@ -63,11 +62,10 @@ public class OptionBase : MonoBehaviour
 
         this.index = index;
         this.procedureInfo = procedureInfo;
-        this.menuManager = menuManager;
 
         transform.GetComponentInChildren<Text>().text = procedureInfo.ProcedureConfig.procedureTitle;
 
         but_Self.onClick.RemoveAllListeners();
-        but_Self.onClick.AddListener(() => menuManager.ChangeState(this));
+        but_Self.onClick.AddListener(() => GlobalComponent.Instance.MenuManager.ChangeState(this));
     }
 }

@@ -5,22 +5,22 @@ using UnityEngine.UI;
 
 public class UIChange : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    [Header("---------- Component")]
+    [Title("---------- Component")]
     [SerializeField] private Image img_State;
     [SerializeField] private Text txt_Content;
     [SerializeField] private Image img_Icon;
 
-    [Header("---------- State Image")]
+    [Title("---------- State Image")]
     [ShowIf("img_State")][SerializeField] private Sprite spr_Normal;
     [ShowIf("img_State")][SerializeField] private Sprite spr_Select;
     [ShowIf("img_State")][SerializeField] private Sprite spr_Hover;
 
-    [Header("---------- State Text")]
+    [Title("---------- State Text")]
     [ShowIf("txt_Content")][SerializeField] private Color color_Normal;
     [ShowIf("txt_Content")][SerializeField] private Color color_Select;
     [ShowIf("txt_Content")][SerializeField] private Color color_Hover;
 
-    [Header("---------- IsOn")]
+    [Title("---------- IsOn")]
     private bool bool_IsOn;
 
     public void ChangeState(bool isOn)

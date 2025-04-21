@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Launch.unity
     guid: deeb1ee7744c23f40b683b893da4826f
+  - enabled: 1
+    path: Assets/Ugion/Scenes/UgionLaunch.unity
+    guid: d62ea705e85730d47aa03ec8716e2e32
   m_configObjects: {}

@@ -54,7 +54,7 @@ public class Robot : SingletonPatternMonoAutoBase<Robot>
     /// </summary>
     public void ControlHighlightTip()
     {
-        if (GlobalManager.Instance.GameMode == GameMode.Exam) return;
+        if (GlobalComponent.Instance.GameMode == GameMode.Exam) return;
         isTip = !isTip;
         ModelCtrl.Instance.SetInteractiveModelsHighlight(isTip);
     }

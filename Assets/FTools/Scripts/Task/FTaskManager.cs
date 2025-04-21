@@ -41,13 +41,13 @@ public class FTaskManager : SingletonPatternMonoBase<FTaskManager>
 
     public void EnterTask(int taskIndex)
     {
-        if (GameManager.Instance.mode)
+        /*if (GameManager.Instance.mode)
         {
             if (taskIndex <= FDatas.curIndex_Á÷³ÌÐòºÅ)
             {
                 return;
             }
-        }
+        }*/
 
         TipManager.HideTips();
         foreach (var task in tasks)

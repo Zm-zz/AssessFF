@@ -85,7 +85,7 @@ public class ChoiceManager : MonoBehaviour
 
     void OnClick_È·¶¨°´Å¥()
     {
-        if (GameManager.Instance.mode)
+        if (GlobalComponent.Instance.GameMode == GameMode.Exam)
         {
             Correct();
             SetActive(false);
